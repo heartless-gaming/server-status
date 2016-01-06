@@ -1,0 +1,52 @@
+{
+	"response": {
+		"success": true,
+		"servers": [
+			{
+				"addr": "188.165.231.218:27024",
+				"gmsindex": 65534,
+				"appid": 730,
+				"gamedir": "csgo",
+				"region": -1,
+				"secure": true,
+				"lan": false,
+				"gameport": 27024,
+				"specport": 0
+			},
+			{
+				"addr": "188.165.231.218:27026",
+				"gmsindex": 65534,
+				"appid": 362890,
+				"gamedir": "bms",
+				"region": 255,
+				"secure": true,
+				"lan": false,
+				"gameport": 27026,
+				"specport": 0
+			},
+			{
+				"addr": "188.165.231.218:28852",
+				"gmsindex": 65534,
+				"appid": 1250,
+				"gamedir": "killingfloor",
+				"region": 255,
+				"secure": true,
+				"lan": false,
+				"gameport": 7707,
+				"specport": 0
+			},
+			{
+				"addr": "188.165.231.218:28855",
+				"gmsindex": 65534,
+				"appid": 1250,
+				"gamedir": "killingfloor",
+				"region": 255,
+				"secure": true,
+				"lan": false,
+				"gameport": 7710,
+				"specport": 0
+			}
+		]
+		
+	}
+}
