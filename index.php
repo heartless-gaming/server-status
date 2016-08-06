@@ -2,6 +2,7 @@
 /*
     Disclamer : You will puke by reading this code. Fixng it could lead to critical heart failure.
     FFS Skulmasher this your future self you suck at this. Better start all over again.
+    Still shit but that's almost maintenable now !
  */
 
 require __DIR__ . '/vendor/koraktor/steam-condenser/lib/steam-condenser.php';
@@ -69,25 +70,21 @@ $hls_steamapi_file = 'heartlessgaming-steamapi.json';
 // Getting an array of the online servers from steamapi
 $hls_steamapi_json = json_decode(file_get_contents($hls_steamapi_file), true);
 $hls_online_servers = $hls_steamapi_json['response']['servers'];
+$hls_online_servers_port = [];
 
-    // echo '<a href="' . $hls_steamapi_url . '">'. $hls_steamapi_url . '</a>';
-    // echo '<pre>';
-    // var_dump($hls_online_servers);
-    // echo '</pre>';
-
-
-function check_server_status($gameport) {
-    global $hls_steamapi_url, $hls_steamapi_url, $hls_online_servers;
-
-    foreach ($hls_online_servers as $key => $value) {
-        if ($value['gameport'] === $gameport) {
-            return true;
-        } else {
-            return false;
-        }
-    }
+// Populating $hls_online_servers_port array to use for server online status detection
+foreach ($hls_online_servers as $hls_online_server) {
+    array_push($hls_online_servers_port, $hls_online_server['gameport']);
 }
 
+// Checking online status against the steamapi result. Also check for type int.
+function check_server_status($gameport) {
+    global $hls_online_servers_port;
+
+    if (in_array($gameport, $hls_online_servers_port, TRUE)) {
+        return true;
+    }
+}
 /*
  * Get server information using their query protocol eventually...
  * 
@@ -109,22 +106,22 @@ function check_server_status($gameport) {
     <header>
         <h1>Server Status</h1>
     </header>
-    <hr>
     <main>
-        <?php foreach ($hls_server_map as $gamename => $hls_gameservers_info) {
-        ?>
-
+        <?php foreach ($hls_server_map as $gamename => $hls_gameservers_info) : ?>
             <section>
                 <h2><?php echo $gamename ?></h2>
-                <?php foreach ($hls_gameservers_info as $game_info) { ?>
+                <?php foreach ($hls_gameservers_info as $game_info) : ?>
                     <p><?php echo $game_info['servername'] ?></p>
-                    <p><?php echo $hls_server_ip . ':' . $game_info['port']?></p>
-                    <a href="steam://connect/<?php echo $hls_server_ip . ':' . $game_info['port'] ?>"><button>Join</button></a>
-                <?php } ?>
+                    <p><?php echo $hls_server_ip . ':' . $game_info['port'] ?></p>
+                    <?php if (check_server_status($game_info['port'])) : ?>
+                        <a href="steam://connect/<?php echo $hls_server_ip . ':' . $game_info['port'] ?>"><button>Join</button></a>
+                    <?php else: ?>
+                        <p>Server is offline</p>
+                    <?php endif; ?>
+                <?php endforeach; ?>
             </section>
-        <?php } ?>
+        <?php endforeach; ?>
     </main>
-    <hr>
     <footer>
         <p>Feel free to <a href="mailto:contact@heartlessgaming.com">contact us</a> if you have a problem or a sugestion to make the game servers better.</p>
         <p>The source code of this website is available on <a href="https://github.com/heartless-gaming/server-status">github</a></p>
