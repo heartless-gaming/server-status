@@ -9,7 +9,7 @@ require __DIR__ . '/vendor/koraktor/steam-condenser/lib/steam-condenser.php';
 $hls_server_ip = '91.121.154.84';
 
 $hls_server_map = [
-    'csgo' => [
+    'Counter-Strike : Global Offensive' => [
         [
             'servername' => 'Heartless Gaming | Public Competitive - tick 128',
             'port' => 27015
@@ -18,25 +18,7 @@ $hls_server_map = [
             'port' => 27016  
         ]
     ],
-    'insurgency' => [
-        [
-            'servername' => 'Heartless Gaming | Insurgency COOP - tick 128',
-            'port' => 27018
-        ]
-    ],
-    'hl2dm' => [
-        [
-            'servername' => 'Heartless Gaming | Half-Life 2 Deathmatch - Vanilla',
-            'port' => 27021
-        ]
-    ],
-    'bms' => [
-        [
-            'servername' => 'Heartless Gaming | Black Mesa Source - Vanilla',
-            'port' => 27022
-        ]
-    ],
-    'killingfloor' => [
+    'Killing Floor' => [
         [
             'servername' => 'Heartless Gaming | HARD Long',
             'port' => 7707
@@ -46,6 +28,24 @@ $hls_server_map = [
         ],[
             'servername' => 'Heartless Gaming | Killing Floor Private',
             'port' => 7709
+        ]
+    ],
+    'Insurgency' => [
+        [
+            'servername' => 'Heartless Gaming | Insurgency COOP - tick 128',
+            'port' => 27018
+        ]
+    ],
+    'Half-life 2: Deathmatch' => [
+        [
+            'servername' => 'Heartless Gaming | Half-Life 2 Deathmatch - Vanilla',
+            'port' => 27021
+        ]
+    ],
+    'Black Mesa Source Multiplayer' => [
+        [
+            'servername' => 'Heartless Gaming | Black Mesa Source - Vanilla',
+            'port' => 27022
         ]
     ]
 ];
@@ -76,7 +76,7 @@ $hls_online_servers = $hls_steamapi_json['response']['servers'];
     // echo '</pre>';
 
 
-function check_online_status($gameport) {
+function check_server_status($gameport) {
     global $hls_steamapi_url, $hls_steamapi_url, $hls_online_servers;
 
     foreach ($hls_online_servers as $key => $value) {
@@ -88,8 +88,6 @@ function check_online_status($gameport) {
     }
 }
 
-check_online_status(27015);
-
 /*
  * Get server information using their query protocol eventually...
  * 
@@ -98,11 +96,13 @@ check_online_status(27015);
  *
  */
 ?>
-<!-- 
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="description" content="Check the online server status of ther Heartless Gaming pc gaming community">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Server Status | Heartless Gaming</title>
 </head>
 <body>
@@ -111,46 +111,18 @@ check_online_status(27015);
     </header>
     <hr>
     <main>
-        <section>
-            <h2>Counter Strike : Global Offensive</h2>
-            <?php 
-                foreach ($hls_server_map_csgo as $csgo_server_key => $csgo_server_value) {
-                    echo '<p>' . $csgo_server_value['servername'] . ' - ' . $hls_server_ip . ':' . $csgo_server_value['port'] . '</p>';
-                }
-            ?>
-        </section>
-        <section>
-            <h2>Insurgency</h2>
-            <?php 
-                foreach ($hls_server_map_ins as $ins_server_key => $ins_server_value) {
-                    echo '<p>' . $ins_server_value['servername'] . ' - ' . $hls_server_ip . ':' . $ins_server_value['port'] . '</p>';
-                }
-            ?>
-        </section>
-        <section>
-            <h2>Killing Floor</h2>
-            <?php 
-                foreach ($hls_server_map_kf as $kf_server_key => $kf_server_value) {
-                    echo '<p>' . $kf_server_value['servername'] . ' - ' . $hls_server_ip . ':' . $kf_server_value['port'] . '</p>';
-                }
-            ?>
-        </section>
-        <section>
-            <h2>Half-life 2 Deathmatch</h2>
-            <?php 
-                foreach ($hls_server_map_hl2dm as $hl2dm_server_key => $hl2dm_server_value) {
-                    echo '<p>' . $hl2dm_server_value['servername'] . ' - ' . $hls_server_ip . ':' . $hl2dm_server_value['port'] . '</p>';
-                }
-            ?>
-        </section>
-        <section>
-            <h2>Black Mesa Source Multiplayer</h2>
-            <?php 
-                foreach ($hls_server_map_bms as $bms_server_key => $bms_server_value) {
-                    echo '<p>' . $bms_server_value['servername'] . ' - ' . $hls_server_ip . ':' . $bms_server_value['port'] . '</p>';
-                }
-            ?>
-        </section>
+        <?php foreach ($hls_server_map as $gamename => $hls_gameservers_info) {
+        ?>
+
+            <section>
+                <h2><?php echo $gamename ?></h2>
+                <?php foreach ($hls_gameservers_info as $game_info) { ?>
+                    <p><?php echo $game_info['servername'] ?></p>
+                    <p><?php echo $hls_server_ip . ':' . $game_info['port']?></p>
+                    <a href="steam://connect/<?php echo $hls_server_ip . ':' . $game_info['port'] ?>"><button>Join</button></a>
+                <?php } ?>
+            </section>
+        <?php } ?>
     </main>
     <hr>
     <footer>
@@ -158,4 +130,4 @@ check_online_status(27015);
         <p>The source code of this website is available on <a href="https://github.com/heartless-gaming/server-status">github</a></p>
     </footer>
 </body>
-</html> -->
+</html>
