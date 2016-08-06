@@ -8,7 +8,7 @@ require __DIR__ . '/vendor/koraktor/steam-condenser/lib/steam-condenser.php';
 
 $hls_server_ip = '91.121.154.84';
 
-$hls_server_map = [ 
+$hls_server_map = [
     'csgo' => [
         [
             'servername' => 'Heartless Gaming | Public Competitive - tick 128',
@@ -56,18 +56,39 @@ $hls_server_map_hl2dm = $hls_server_map['hl2dm'];
 $hls_server_map_bms = $hls_server_map['bms'];
 $hls_server_map_kf = $hls_server_map['killingfloor'];
 
+
+/*
+ * Checking if the server map can be found in the steam api request
+ *
+ */
+
 // You can either read the steamapi result from a URL or from a file.
 $hls_steamapi_url = 'http://api.steampowered.com/ISteamApps/GetServersAtAddress/v0001?addr=' . $hls_server_ip . '&format=json';
 $hls_steamapi_file = 'heartlessgaming-steamapi.json';
 
 // Getting an array of the online servers from steamapi
-$hls_steamapi_json = json_decode(file_get_contents($hls_steamapi_url), true);
+$hls_steamapi_json = json_decode(file_get_contents($hls_steamapi_file), true);
 $hls_online_servers = $hls_steamapi_json['response']['servers'];
 
-// echo '<a href="' . $hls_steamapi_url . '">'. $hls_steamapi_url . '</a>';
-// echo '<pre>';
-// var_dump($hls_server_map_csgo);
-// echo '</pre>';
+    // echo '<a href="' . $hls_steamapi_url . '">'. $hls_steamapi_url . '</a>';
+    // echo '<pre>';
+    // var_dump($hls_online_servers);
+    // echo '</pre>';
+
+
+function check_online_status($gameport) {
+    global $hls_steamapi_url, $hls_steamapi_url, $hls_online_servers;
+
+    foreach ($hls_online_servers as $key => $value) {
+        if ($value['gameport'] === $gameport) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+}
+
+check_online_status(27015);
 
 /*
  * Get server information using their query protocol eventually...
@@ -77,7 +98,7 @@ $hls_online_servers = $hls_steamapi_json['response']['servers'];
  *
  */
 ?>
-
+<!-- 
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -137,4 +158,4 @@ $hls_online_servers = $hls_steamapi_json['response']['servers'];
         <p>The source code of this website is available on <a href="https://github.com/heartless-gaming/server-status">github</a></p>
     </footer>
 </body>
-</html>
+</html> -->
