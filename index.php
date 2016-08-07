@@ -1,14 +1,14 @@
 <?php 
-/*
-    Disclamer : You will puke by reading this code. Fixng it could lead to critical heart failure.
-    FFS Skulmasher this your future self you suck at this. Better start all over again.
-    Still shit but that's almost maintenable now !
- */
-
 require __DIR__ . '/vendor/koraktor/steam-condenser/lib/steam-condenser.php';
 
+/*
+ * TODO : Make this Dynamic
+ */
 $hls_server_ip = '91.121.154.84';
 
+/*
+ * TODO : Grab this from a json file
+ */
 $hls_server_map = [
     'Counter-Strike : Global Offensive' => [
         [
@@ -51,13 +51,6 @@ $hls_server_map = [
     ]
 ];
 
-$hls_server_map_csgo = $hls_server_map['csgo'];
-$hls_server_map_ins = $hls_server_map['insurgency'];
-$hls_server_map_hl2dm = $hls_server_map['hl2dm'];
-$hls_server_map_bms = $hls_server_map['bms'];
-$hls_server_map_kf = $hls_server_map['killingfloor'];
-
-
 /*
  * Checking if the server map can be found in the steam api request
  *
@@ -78,6 +71,7 @@ foreach ($hls_online_servers as $hls_online_server) {
 }
 
 // Checking online status against the steamapi result. Also check for type int.
+
 function check_server_status($gameport) {
     global $hls_online_servers_port;
 
@@ -85,26 +79,32 @@ function check_server_status($gameport) {
         return true;
     }
 }
-/*
- * Get server information using their query protocol eventually...
- * 
- * NODEJS : https://github.com/kurt-stolle/game-server-query
- *
- *
- */
-?>
 
+/*
+ * Get all the information of a source engine game.
+ * Return : a fat array with all the server info
+ * NOT USED just there for later use
+ */
+function get_source_server_info($port) {
+    global $hls_server_ip;
+
+    $server = new SourceServer( $hls_server_ip, $port );
+    $server->initialize();
+    return $server->getServerInfo();
+}
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="description" content="Check the online server status of ther Heartless Gaming pc gaming community">
+    <meta name="description" content="Game server status of the Heartless Gaming pc gaming community.">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Server Status | Heartless Gaming</title>
+    <title>Game Server Status | Heartless Gaming</title>
 </head>
 <body>
     <header>
-        <h1>Server Status</h1>
+        <h1>Game Server Status</h1>
     </header>
     <main>
         <?php foreach ($hls_server_map as $gamename => $hls_gameservers_info) : ?>
@@ -125,6 +125,7 @@ function check_server_status($gameport) {
     <footer>
         <p>Feel free to <a href="mailto:contact@heartlessgaming.com">contact us</a> if you have a problem or a sugestion to make the game servers better.</p>
         <p>The source code of this website is available on <a href="https://github.com/heartless-gaming/server-status">github</a></p>
+        <p>Play more, Care less, Be an Heartless.</p>
     </footer>
 </body>
 </html>
