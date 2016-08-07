@@ -1,4 +1,4 @@
-<?php 
+<?php
 require __DIR__ . '/vendor/koraktor/steam-condenser/lib/steam-condenser.php';
 
 /*
@@ -99,6 +99,7 @@ function get_source_server_info($port) {
     <meta charset="UTF-8">
     <meta name="description" content="Game server status of the Heartless Gaming pc gaming community.">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="css/style.css">
     <title>Game Server Status | Heartless Gaming</title>
 </head>
 <body>
