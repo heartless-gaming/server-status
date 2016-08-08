@@ -57,7 +57,7 @@ bs.watch(appPath.appFolderPath + appPath.sassFolderName + '**.scss', function (e
       file: appPath.appFolderPath + appPath.sassFolderName + 'style.scss',
       outputStyle: 'expanded',
       outFile: appPath.appFolderPath + appPath.cssFolderName + 'style.css',
-      sourceMap: 'style.map.css'
+      sourceMap: appPath.appFolderPath + appPath.cssFolderName + 'style.map.css'
     }, function (error, result) {
       if (error) {
         // Pretty Debug Message on sass error
@@ -82,7 +82,6 @@ bs.watch(appPath.appFolderPath + appPath.sassFolderName + '**.scss', function (e
               }
             })
           } else {
-            log('error there')
             log(err)
           }
         })
