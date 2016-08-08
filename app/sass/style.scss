@@ -1,13 +1,2 @@
-@import 'knacss';
-
-@import 'node_modules/lato-font/scss/public-api';
-
-$lato-font-path: '/node_modules/lato-font/fonts';
-
-@include lato-include-font('medium');
-
-body {
-	background-color: #333;
-	color: #f0f0f0;
-	@include lato-font('medium');
-}
+@import '../font/roboto.css';
+@import 'knacss/knacss';

@@ -1,4 +1,5 @@
 @charset "UTF-8";
+@import url(../font/roboto.css);
 /*!
 * www.KNACSS.com V5.0.1 (24 mai 2016) @author: Alsacreations, Raphael Goetter
 * Licence WTFPL http://www.wtfpl.net/
@@ -469,18 +470,18 @@ html {
 
 body {
   font-size: 1.6rem;
-  background-color: #fff;
-  color: #000;
-  font-family: sans-serif;
+  background-color: #333;
+  color: #f0f0f0;
+  font-family: "roboto", sans-serif;
   line-height: 1.5;
 }
 
 a {
-  color: #333;
+  color: #c61600;
 }
 
 a:hover, a:focus, a:active {
-  color: #000;
+  color: #fb3f00;
 }
 
 /* font-sizing for content */
@@ -505,12 +506,12 @@ figure {
 
 h1, .h1-like {
   font-size: 3.2rem;
-  font-family: sans-serif;
+  font-family: "roboto", sans-serif;
 }
 
 h2, .h2-like {
   font-size: 2.8rem;
-  font-family: sans-serif;
+  font-family: "roboto", sans-serif;
 }
 
 h3, .h3-like {
@@ -1270,7 +1271,7 @@ input,
 optgroup,
 select,
 textarea {
-  color: #000;
+  color: #f0f0f0;
 }
 
 label {
@@ -1979,31 +1980,5 @@ ul.unstyled {
 /* ==Own stylesheet              */
 /* ----------------------------- */
 /* Here should go your own CSS styles */
-/* Lato (medium, regular) */
-@font-face {
-  font-family: "Lato Medium";
-  src: url("/node_modules/lato-font/fonts/lato-medium/lato-medium.eot");
-  src: url("/node_modules/lato-font/fonts/lato-medium/lato-medium.eot?#iefix") format("embedded-opentype"), url("/node_modules/lato-font/fonts/lato-medium/lato-medium.woff") format("woff"), url("/node_modules/lato-font/fonts/lato-medium/lato-medium.ttf") format("truetype");
-  font-weight: 400;
-  font-style: normal;
-}
-
-/* Lato (medium, italic) */
-@font-face {
-  font-family: "Lato Medium";
-  src: url("/node_modules/lato-font/fonts/lato-medium-italic/lato-medium-italic.eot");
-  src: url("/node_modules/lato-font/fonts/lato-medium-italic/lato-medium-italic.eot?#iefix") format("embedded-opentype"), url("/node_modules/lato-font/fonts/lato-medium-italic/lato-medium-italic.woff") format("woff"), url("/node_modules/lato-font/fonts/lato-medium-italic/lato-medium-italic.ttf") format("truetype");
-  font-weight: 400;
-  font-style: italic;
-}
-
-body {
-  background-color: #333;
-  color: #f0f0f0;
-  /* Lato (medium, normal) */
-  font-family: "Lato Medium";
-  font-weight: 400;
-  font-style: normal;
-}
 
 /*# sourceMappingURL=style.map.css */

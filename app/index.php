@@ -103,8 +103,11 @@ function get_source_server_info($port) {
     <title>Game Server Status | Heartless Gaming</title>
 </head>
 <body>
-    <header>
-        <h1>Game Server Status</h1>
+    <header class="page-head">
+        <div class="flex-container">
+            <h1 class="page-head__text">Game Server Status</h1>
+            <img src="img/hearltess-gaming-logo.svg" alt="Logo Heartless Gaming" class="page-head__logo">
+        </div>
     </header>
     <main>
         <?php foreach ($hls_server_map as $gamename => $hls_gameservers_info) : ?>
