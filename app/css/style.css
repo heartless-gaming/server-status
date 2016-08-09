@@ -517,27 +517,33 @@ figure {
 h1, .h1-like {
   font-size: 3.2rem;
   font-family: "roboto", sans-serif;
+  font-weight: normal;
 }
 
 h2, .h2-like {
   font-size: 2.8rem;
   font-family: "roboto", sans-serif;
+  font-weight: normal;
 }
 
 h3, .h3-like {
   font-size: 2.4rem;
+  font-weight: normal;
 }
 
 h4, .h4-like {
   font-size: 2rem;
+  font-weight: normal;
 }
 
 h5, .h5-like {
   font-size: 1.8rem;
+  font-weight: normal;
 }
 
 h6, .h6-like {
   font-size: 1.6rem;
+  font-weight: normal;
 }
 
 /* alternate font-sizing */
@@ -2054,6 +2060,10 @@ ul.unstyled {
 /*
  * 3 - MAIN CONTENT
  */
+.game-server {
+  text-align: center;
+}
+
 .game-server__join {
   padding: 5px 25px;
   background-color: #666;

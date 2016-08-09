@@ -77,27 +77,33 @@ figure {
 h1, .#{$kna-namespace}h1-like {
   font-size: $h1-size;
   font-family: $font-stack-headings;
+  font-weight: normal;
 }
 
 h2, .#{$kna-namespace}h2-like {
   font-size: $h2-size;
   font-family: $font-stack-headings;
+  font-weight: normal;
 }
 
 h3, .#{$kna-namespace}h3-like {
   font-size: $h3-size;
+  font-weight: normal;
 }
 
 h4, .#{$kna-namespace}h4-like {
   font-size: $h4-size;
+  font-weight: normal;
 }
 
 h5, .#{$kna-namespace}h5-like {
   font-size: $h5-size;
+  font-weight: normal;
 }
 
 h6, .#{$kna-namespace}h6-like {
   font-size: $h6-size;
+  font-weight: normal;
 }
 
 /* alternate font-sizing */

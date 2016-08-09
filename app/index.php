@@ -110,7 +110,7 @@ function get_source_server_info($port) {
 	<main class="page-content">
 		<?php foreach ($hls_server_map as $gamename => $hls_gameservers_info) : ?>
 			<section class="game-server">
-				<h2 class="game-server__title"><?php echo $gamename ?></h2>
+				<h2 class="game-server__title h3-like"><?php echo $gamename ?></h2>
 				<?php foreach ($hls_gameservers_info as $game_info) : ?>
 					<p class="game-server__name"><?php echo $game_info['servername'] ?></p>
 					<p class="game-server__ip"><?php echo $hls_server_ip . ':' . $game_info['port'] ?></p>
