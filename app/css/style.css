@@ -2056,21 +2056,40 @@ ul.unstyled {
  * 3 - MAIN CONTENT
  */
 .game-server {
-  /*background-color: #222;*/
-}
-
-.game-server__item {
-  padding: 2rem 2%;
-  background-color: #222;
   margin-bottom: 2rem;
 }
 
-.game-server > * {
-  /*background-color: #222;*/
+.game-server__instance {
+  align-items: center;
+  padding: 2rem 2%;
+  background-color: #222;
+}
+
+@media (min-width: 640px) {
+  .game-server__instance {
+    padding: 2rem 5%;
+    flex-direction: column;
+  }
+}
+
+@media (min-width: 768px) {
+  .game-server__instance {
+    flex-direction: row;
+  }
 }
 
 .game-server__title {
   text-align: center;
+}
+
+.game-server__name {
+  text-align: center;
+}
+
+@media (min-width: 768px) {
+  .game-server__ip {
+    margin-top: 0;
+  }
 }
 
 .game-server__status {
@@ -2078,6 +2097,12 @@ ul.unstyled {
   margin-top: 1em;
   text-transform: uppercase;
   letter-spacing: 1px;
+}
+
+@media (min-width: 768px) {
+  .game-server__status {
+    margin-top: 0;
+  }
 }
 
 .game-server__join {
