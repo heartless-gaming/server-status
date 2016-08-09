@@ -107,15 +107,15 @@ function get_source_server_info($port) {
 			<h1 class="page-header__title">Game Server Status</h1>
 			<img src="img/hearltess-gaming-logo.svg" alt="Logo Heartless Gaming" class="page-header__logo">
 	</header>
-	<main>
+	<main class="page-content">
 		<?php foreach ($hls_server_map as $gamename => $hls_gameservers_info) : ?>
-			<section>
-				<h2><?php echo $gamename ?></h2>
+			<section class="game-server">
+				<h2 class="game-server__title"><?php echo $gamename ?></h2>
 				<?php foreach ($hls_gameservers_info as $game_info) : ?>
-					<p><?php echo $game_info['servername'] ?></p>
-					<p><?php echo $hls_server_ip . ':' . $game_info['port'] ?></p>
+					<p class="game-server__name"><?php echo $game_info['servername'] ?></p>
+					<p class="game-server__ip"><?php echo $hls_server_ip . ':' . $game_info['port'] ?></p>
 					<?php if (check_server_status($game_info['port'])) : ?>
-						<a href="steam://connect/<?php echo $hls_server_ip . ':' . $game_info['port'] ?>"><button>Join</button></a>
+						<a href="steam://connect/<?php echo $hls_server_ip . ':' . $game_info['port'] ?>" class="game-server__join-link"><button class="game-server__join-button">Join</button></a>
 					<?php else: ?>
 						<p>Server is offline</p>
 					<?php endif; ?>

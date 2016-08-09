@@ -1,20 +1,21 @@
 /*
+ * CSS MAP
+ *
  * 1 - Almighty Knacss & font file inclusion
- * 2 -
+ * 2 - HEADER
+ * 3 - MAIN CONTENT
  */
+
+/*
+ * 1 - Almighty Knacss & font file inclusion
+ */
+
 @import '../font/roboto.css';
 @import 'knacss/knacss';
 
 /*
+ * 2 - HEADER
  */
-
-body {
-  font-size: $base-font-size;
-  background-color: $base-background;
-  color: $base-color;
-  font-family: $font-stack-common;
-  line-height: $line-height;
-}
 
 .page-header {
   padding: 2rem 2%;
@@ -73,3 +74,8 @@ body {
     margin: 0;
   }
 }
+
+
+/*
+ * 3 - MAIN CONTENT
+ */
