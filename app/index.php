@@ -103,27 +103,29 @@ function get_source_server_info($port) {
 	<title>Game Server Status | Heartless Gaming</title>
 </head>
 <body>
-	<header class="page-header flex-container">
+	<header class="page-header flex-container box">
 			<h1 class="page-header__title">Game Server Status</h1>
 			<img src="img/hearltess-gaming-logo.svg" alt="Logo Heartless Gaming" class="page-header__logo">
 	</header>
 	<main class="page-content">
-		<?php foreach ($hls_server_map as $gamename => $hls_gameservers_info) : ?>
-			<section class="game-server">
-				<h2 class="game-server__title h3-like"><?php echo $gamename ?></h2>
-				<?php foreach ($hls_gameservers_info as $game_info) : ?>
-					<p class="game-server__name"><?php echo $game_info['servername'] ?></p>
-					<p class="game-server__ip"><?php echo $hls_server_ip . ':' . $game_info['port'] ?></p>
-					<?php if (check_server_status($game_info['port'])) : ?>
-						<a href="steam://connect/<?php echo $hls_server_ip . ':' . $game_info['port'] ?>" class="game-server__join btn">Join</a>
-					<?php else: ?>
-						<p>Server is offline</p>
-					<?php endif; ?>
-				<?php endforeach; ?>
-			</section>
+	<?php foreach ($hls_server_map as $gamename => $hls_gameservers_info) : ?>
+		<section class="game-server box">
+			<h2 class="game-server__title h3-like"><?php echo $gamename ?></h2>
+		<?php foreach ($hls_gameservers_info as $game_info) : ?>
+			<div class="game-server__item flex-container">
+				<p class="game-server__name"><?php echo $game_info['servername'] ?></p>
+				<p class="game-server__ip"><?php echo $hls_server_ip . ':' . $game_info['port'] ?></p>
+			<?php if (check_server_status($game_info['port'])) : ?>
+				<a href="steam://connect/<?php echo $hls_server_ip . ':' . $game_info['port'] ?>" class="game-server__status game-server__join btn">Join</a>
+			<?php else: ?>
+				<p class="game-server__status game-server__offline">Offline</p>
+			<?php endif; ?>
+			</div>
 		<?php endforeach; ?>
+		</section>
+	<?php endforeach; ?>
 	</main>
-	<footer>
+	<footer class="page-footer">
 		<p>Feel free to <a href="mailto:contact@heartlessgaming.com">contact us</a> if you have a problem or a sugestion to make the game servers better.</p>
 		<p>The source code of this website is available on <a href="https://github.com/heartless-gaming/server-status">github</a></p>
 		<p>Play more, Care less, Be an Heartless.</p>
