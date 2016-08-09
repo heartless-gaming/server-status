@@ -2129,7 +2129,6 @@ ul.unstyled {
 }
 
 .game-server__join {
-  margin-left: 2rem;
   padding: .5rem 2.5rem;
   background-color: #444;
   color: #f0f0f0;
@@ -2147,6 +2146,12 @@ ul.unstyled {
   border-color: #c61600;
 }
 
+@media (min-width: 768px) {
+  .game-server__join {
+    margin-left: 2rem;
+  }
+}
+
 .game-server__offline {
   color: #c61600;
 }
@@ -2161,5 +2166,8 @@ ul.unstyled {
 /*
  * 4 - PAGE FOOTER
  */
+.page-footer__mail {
+  color: #c61600;
+}
 
 /*# sourceMappingURL=style.map.css */

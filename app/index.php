@@ -126,7 +126,7 @@ function get_source_server_info($port) {
 	<?php endforeach; ?>
 	</main>
 	<footer class="page-footer">
-		<p>Feel free to <a href="mailto:contact@heartlessgaming.com">contact us</a> if you have a problem or a sugestion to make the game servers better.</p>
+		<p>Feel free to contact us by email <span class="page-footer__mail">contact [at] heartlessgaming.com</span> if you have a problem or a sugestion to make the game servers better.</p>
 		<p>The source code of this website is available on <a href="https://github.com/heartless-gaming/server-status">github</a></p>
 		<p>Play more, Care less, Be an Heartless.</p>
 	</footer>

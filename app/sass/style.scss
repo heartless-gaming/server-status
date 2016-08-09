@@ -154,7 +154,6 @@
 }
 
 .game-server__join {
-  margin-left: 2rem;
   padding: .5rem 2.5rem;
   background-color: #444;
   color: $base-color;
@@ -169,6 +168,12 @@
   &:hover {
     box-shadow: 0px 0px 5px 0px rgba(198,22,0,1);
     border-color: $base-color-link;
+  }
+}
+
+@include media('>=small-plus-screen') {
+  .game-server__join {
+    margin-left: 2rem;
   }
 }
 
@@ -187,3 +192,6 @@
  * 4 - PAGE FOOTER
  */
 
+ .page-footer__mail {
+  color: $base-color-link;
+ }
