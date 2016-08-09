@@ -10,6 +10,8 @@ Simple crapy piece of php code that fetch a json object taken directly from a st
 	- Arrow to deploy the gameserver instance
 	- align the game title to the left
 	- Add image or art about the game
+	- Add a liscence to the code of this project
+	- Think about the liscence of the heartlessgaming asset.
 
 ## Dependencies
 You need to install Composer in order to get the SteamCondenser Project in your vendor folder.
