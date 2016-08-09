@@ -79,3 +79,23 @@
 /*
  * 3 - MAIN CONTENT
  */
+
+.game-server__join {
+  padding: 5px 25px;
+  background-color: #666;
+  text-transform: uppercase;
+  color: $base-color;
+  text-decoration: none;
+  font-family: 'robotobold';
+  box-shadow: 0px 0px 7px 0px rgba(255,255,255,1);
+  letter-spacing: 1px;
+  border-radius: 3px;
+  border: 1px solid #fff;
+  transition-duration: 0.5s;
+  transition-property: box-shadow, color, border;
+
+  &:hover {
+    box-shadow: 0px 0px 5px 0px rgba(198,22,0,1);
+    border-color: $base-color-link;
+  }
+}

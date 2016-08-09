@@ -2054,5 +2054,24 @@ ul.unstyled {
 /*
  * 3 - MAIN CONTENT
  */
+.game-server__join {
+  padding: 5px 25px;
+  background-color: #666;
+  text-transform: uppercase;
+  color: #f0f0f0;
+  text-decoration: none;
+  font-family: 'robotobold';
+  box-shadow: 0px 0px 7px 0px white;
+  letter-spacing: 1px;
+  border-radius: 3px;
+  border: 1px solid #fff;
+  transition-duration: 0.5s;
+  transition-property: box-shadow, color, border;
+}
+
+.game-server__join:hover {
+  box-shadow: 0px 0px 5px 0px #c61600;
+  border-color: #c61600;
+}
 
 /*# sourceMappingURL=style.map.css */
