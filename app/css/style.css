@@ -2005,7 +2005,10 @@ ul.unstyled {
 
 @media (min-width: 640px) {
   .page-header {
-    padding: 2rem 5%;
+    padding-top: 2rem;
+    padding-right: 5%;
+    padding-bottom: 2rem;
+    padding-left: 5%;
     flex-direction: column;
   }
 }
@@ -2166,6 +2169,24 @@ ul.unstyled {
 /*
  * 4 - PAGE FOOTER
  */
+.page-footer {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding-top: 0;
+  padding-right: 2%;
+  padding-left: 2%;
+  padding-bottom: 4rem;
+}
+
+@media (min-width: 640px) {
+  .page-footer {
+    padding-top: 0;
+    padding-right: 5%;
+    padding-left: 5%;
+    padding-bottom: 4rem;
+  }
+}
+
 .page-footer__mail {
   color: #c61600;
 }
