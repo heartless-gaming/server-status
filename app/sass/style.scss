@@ -1,2 +1,75 @@
+/*
+ * 1 - Almighty Knacss & font file inclusion
+ * 2 -
+ */
 @import '../font/roboto.css';
 @import 'knacss/knacss';
+
+/*
+ */
+
+body {
+  font-size: $base-font-size;
+  background-color: $base-background;
+  color: $base-color;
+  font-family: $font-stack-common;
+  line-height: $line-height;
+}
+
+.page-header {
+  padding: 2rem 2%;
+}
+
+@include media('>=small-screen') {
+  .page-header {
+    padding: 2rem 5%;
+    flex-direction: column;
+  }
+}
+
+@include media('>=small-plus-screen') {
+  .page-header {
+    flex-direction: row;
+  }
+}
+
+@include media('>=small-plus-screen') {
+  .page-header {
+    align-items: center;
+    justify-content: space-around;
+  }
+}
+
+@include media('>=large-screen') {
+  .page-header {
+    width: 80%;
+    margin: auto;
+  }
+}
+
+.page-header__title {
+  text-transform: uppercase;
+  text-align: center;
+}
+
+.page-header__logo {
+  margin: auto;
+}
+
+@include media('>=tiny-plus-screen') {
+  .page-header__logo {
+    max-width: 300px;
+  }
+}
+
+@include media('>=small-screen') {
+  .page-header__logo {
+    height: 100px;
+  }
+}
+
+@include media('>=small-plus-screen') {
+  .page-header__logo {
+    margin: 0;
+  }
+}
