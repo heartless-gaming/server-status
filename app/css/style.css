@@ -2025,7 +2025,7 @@ ul.unstyled {
 
 @media (min-width: 1280px) {
   .page-header {
-    width: 80%;
+    width: 1280px;
     margin: auto;
   }
 }
@@ -2057,12 +2057,12 @@ ul.unstyled {
  */
 .game-server {
   margin-bottom: 2rem;
+  background-color: #222;
 }
 
 .game-server__instance {
   align-items: center;
   padding: 2rem 2%;
-  background-color: #222;
 }
 
 @media (min-width: 640px) {
@@ -2078,12 +2078,29 @@ ul.unstyled {
   }
 }
 
+@media (min-width: 1280px) {
+  .game-server__instance {
+    width: 1280px;
+    margin: auto;
+  }
+}
+
 .game-server__title {
   text-align: center;
+  background-color: #333;
+  margin-bottom: 0;
+  padding-bottom: 2.2rem;
 }
 
 .game-server__name {
   text-align: center;
+}
+
+@media (min-width: 768px) {
+  .game-server__name {
+    text-align: left;
+    flex-grow: 1;
+  }
 }
 
 @media (min-width: 768px) {
@@ -2101,12 +2118,19 @@ ul.unstyled {
 
 @media (min-width: 768px) {
   .game-server__status {
+    margin: 0;
+  }
+}
+
+@media (min-width: 768px) {
+  .game-server__status {
     margin-top: 0;
   }
 }
 
 .game-server__join {
-  padding: 5px 25px;
+  margin-left: 2rem;
+  padding: .5rem 2.5rem;
   background-color: #444;
   color: #f0f0f0;
   text-decoration: none;
@@ -2125,6 +2149,13 @@ ul.unstyled {
 
 .game-server__offline {
   color: #c61600;
+}
+
+@media (min-width: 768px) {
+  .game-server__offline {
+    margin-left: 2rem;
+    padding: 0 1.2rem;
+  }
 }
 
 /*
