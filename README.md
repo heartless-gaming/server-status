@@ -1,3 +1,5 @@
+![revolunet logo](repo_image.png "Game server status preview image")
+
 # Heartless Gaming Game Server Status
 Code behind the [Heartless Gaming game server status](https://www.heartlessgaming.com/game-server-status/) website.
 
