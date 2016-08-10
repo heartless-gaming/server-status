@@ -60,8 +60,11 @@
   text-align: center;
 }
 
-.page-header__logo {
+.page-header__link {
   margin: auto;
+}
+
+.page-header__logo {
   max-width: 300px;
 }
 
@@ -112,17 +115,35 @@
   }
 }
 
+.game-server__header {
+  background-color: $base-background;
+}
 
 .game-server__title {
-  text-align: center;
-  background-color: $base-background;
   margin-bottom: 0;
   padding-bottom: 2.2rem;
+  text-align: center;
+}
+
+@include media('>=small-plus-screen') {
+  .game-server__title {
+    padding-right: 5%;
+    padding-left: 5%;
+    text-align: left;
+  }
+}
+
+@include media('>=large-screen') {
+  .game-server__title {
+    width: 1280px;
+    margin: auto;
+  }
 }
 
 .game-server__name {
   text-align: center;
 }
+
 @include media('>=small-plus-screen') {
   .game-server__name {
     text-align: left;

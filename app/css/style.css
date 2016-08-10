@@ -2038,8 +2038,11 @@ ul.unstyled {
   text-align: center;
 }
 
-.page-header__logo {
+.page-header__link {
   margin: auto;
+}
+
+.page-header__logo {
   max-width: 300px;
 }
 
@@ -2088,11 +2091,29 @@ ul.unstyled {
   }
 }
 
-.game-server__title {
-  text-align: center;
+.game-server__header {
   background-color: #333;
+}
+
+.game-server__title {
   margin-bottom: 0;
   padding-bottom: 2.2rem;
+  text-align: center;
+}
+
+@media (min-width: 768px) {
+  .game-server__title {
+    padding-right: 5%;
+    padding-left: 5%;
+    text-align: left;
+  }
+}
+
+@media (min-width: 1280px) {
+  .game-server__title {
+    width: 1280px;
+    margin: auto;
+  }
 }
 
 .game-server__name {

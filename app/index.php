@@ -105,12 +105,16 @@ function get_source_server_info($port) {
 <body>
 	<header class="page-header flex-container box">
 			<h1 class="page-header__title">Game Server Status</h1>
-			<img src="img/hearltess-gaming-logo.svg" alt="Logo Heartless Gaming" class="page-header__logo">
+			<a href="https://www.heartlessgaming.com" class="page-header__link">
+				<img src="img/hearltess-gaming-logo.svg" alt="Logo Heartless Gaming" class="page-header__logo">
+			</a>
 	</header>
 	<main class="page-content">
 	<?php foreach ($hls_server_map as $gamename => $hls_gameservers_info) : ?>
 		<section class="game-server box">
-			<h2 class="game-server__title h3-like"><?php echo $gamename ?></h2>
+			<header class="game-server__header">
+				<h2 class="game-server__title h3-like"><?php echo $gamename ?></h2>
+			</header>
 		<?php foreach ($hls_gameservers_info as $game_info) : ?>
 			<div class="game-server__instance flex-container">
 				<p class="game-server__name"><?php echo $game_info['servername'] ?></p>
@@ -125,7 +129,7 @@ function get_source_server_info($port) {
 		</section>
 	<?php endforeach; ?>
 	</main>
-	<footer class="page-footer">
+	<footer class="page-footer box">
 		<p>Feel free to contact us by email <span class="page-footer__mail">contact [at] heartlessgaming.com</span> if you have a problem or a sugestion to make the game servers better.</p>
 		<p>The source code of this website is available on <a href="https://github.com/heartless-gaming/server-status">github</a></p>
 		<p>Play more, Care less, Be an Heartless.</p>
