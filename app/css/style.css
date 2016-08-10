@@ -2096,6 +2096,7 @@ ul.unstyled {
 }
 
 .game-server__title {
+  position: relative;
   margin-bottom: 0;
   padding-bottom: 2.2rem;
   text-align: center;
@@ -2114,6 +2115,17 @@ ul.unstyled {
     width: 1280px;
     margin: auto;
   }
+}
+
+.game-server__hide {
+  position: absolute;
+  top: 10px;
+  right: 5%;
+  transition-duration: 0.5s;
+}
+
+.rotate90 {
+  transform: rotate(90deg);
 }
 
 .game-server__name {

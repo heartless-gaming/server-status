@@ -113,19 +113,22 @@ function get_source_server_info($port) {
 	<?php foreach ($hls_server_map as $gamename => $hls_gameservers_info) : ?>
 		<section class="game-server box">
 			<header class="game-server__header">
-				<h2 class="game-server__title h3-like"><?php echo $gamename ?></h2>
+				<h2 class="game-server__title h3-like"><?php echo $gamename ?><img src="img/arrow.svg" class="game-server__hide is-hidden js-gameserver"></h2>
 			</header>
-		<?php foreach ($hls_gameservers_info as $game_info) : ?>
-			<div class="game-server__instance flex-container">
-				<p class="game-server__name"><?php echo $game_info['servername'] ?></p>
-				<p class="game-server__ip"><?php echo $hls_server_ip . ':' . $game_info['port'] ?></p>
-			<?php if (check_server_status($game_info['port'])) : ?>
-				<a href="steam://connect/<?php echo $hls_server_ip . ':' . $game_info['port'] ?>" class="game-server__status game-server__join btn">Join</a>
-			<?php else: ?>
-				<p class="game-server__status game-server__offline">Offline</p>
-			<?php endif; ?>
+			<div class="js-gameserver-list">
+			<?php foreach ($hls_gameservers_info as $game_info) : ?>
+				<div class="game-server__instance flex-container">
+					<p class="game-server__name"><?php echo $game_info['servername'] ?></p>
+					<p class="game-server__ip"><?php echo $hls_server_ip . ':' . $game_info['port'] ?></p>
+				<?php if (check_server_status($game_info['port'])) : ?>
+					<a href="steam://connect/<?php echo $hls_server_ip . ':' . $game_info['port'] ?>" class="game-server__status game-server__join btn">Join</a>
+				<?php else: ?>
+					<p class="game-server__status game-server__offline">Offline</p>
+				<?php endif; ?>
+				</div>
+			<?php endforeach; ?>
 			</div>
-		<?php endforeach; ?>
+
 		</section>
 	<?php endforeach; ?>
 	</main>
@@ -134,5 +137,7 @@ function get_source_server_info($port) {
 		<p>The source code of this website is available on <a href="https://github.com/heartless-gaming/server-status">github</a></p>
 		<p>Play more, Care less, Be an Heartless.</p>
 	</footer>
+	<script src="../node_modules/jquery/dist/jquery.min.js"></script>
+	<script src="js/script.js"></script>
 </body>
 </html>
