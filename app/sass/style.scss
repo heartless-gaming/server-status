@@ -64,6 +64,12 @@
   margin: auto;
 }
 
+@include media('>=small-plus-screen') {
+  .page-header__link {
+    margin: 0;
+  }
+}
+
 .page-header__logo {
   max-width: 300px;
 }
