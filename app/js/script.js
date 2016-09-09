@@ -1,5 +1,7 @@
 console.log('lodr')
-
+/*
+* Hello There c'est Skull !
+*/
 var greetingMessage = function () {
   console.log('  #####   ')
   console.log(' #######  ')
@@ -11,9 +13,10 @@ var greetingMessage = function () {
   console.log('  # # #   ')
 }
 
-jQuery(document).ready(function ($) {
-  greetingMessage()
-
+/*
+* Toggle to colapse the game servers info.
+*/
+var arrowGameServer = function () {
   var $arrowGameserver = $('.js-gameserver')
 
   $arrowGameserver.removeClass('is-hidden')
@@ -27,4 +30,9 @@ jQuery(document).ready(function ($) {
       .stop()
       .slideToggle(500)
   })
+}
+
+jQuery(document).ready(function ($) {
+  greetingMessage()
+  arrowGameServer()
 })

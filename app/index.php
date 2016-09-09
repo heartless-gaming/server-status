@@ -80,7 +80,7 @@ function get_source_server_info($port) {
 				<div class="game-server__info flex-container">
 					<p class="game-server__name"><?php echo $game_info->servername ?></p>
 					<p class="game-server__players">
-						<?php if ($game_info->isSourceGame) {
+						<?php if (check_server_status($game_info->port) && $game_info->isSourceGame) {
 								echo get_source_server_info($game_info->port)['numberOfPlayers'] . ' / ' . get_source_server_info($game_info->port)['maxPlayers'];
 						} ?>
 					</p>
@@ -98,6 +98,7 @@ function get_source_server_info($port) {
 	<?php endforeach; ?>
 	</main>
 	<footer class="page-footer box">
+		<p>Game servers online status are checked every 10 minutes.</p>
 		<p>Feel free to contact us by email <span class="page-footer__mail">contact [at] heartlessgaming.com</span> if you have a problem or a sugestion to make the game servers better.</p>
 		<p>The source code of this website is available on <a href="https://github.com/heartless-gaming/server-status">github</a></p>
 		<p>Play more, Care less, Be an Heartless.</p>

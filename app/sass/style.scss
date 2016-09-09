@@ -127,7 +127,7 @@
 
 @include media('>=small-plus-screen') {
   .game-server__info > p,
-  .game-server__info > a, {
+  .game-server__info > a {
     margin-top: 0;
   }
 }
