@@ -40,8 +40,7 @@ function check_server_status($gameport) {
 
 /*
  * Get all the information of a source engine game.
- * Return : a fat array with all the server info
- * NOT USED just there for later use
+ * Return : array with all the server info
  */
 function get_source_server_info($port) {
 	global $hls_server_ip;
