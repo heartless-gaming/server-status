@@ -9,7 +9,9 @@ $hls_server_ip = '91.121.154.84';
 /*
  * TODO : Grab this from a json file
  */
-$hls_server_map = [
+$hls_server_map = json_decode(file_get_contents('json/heartlessgaming-servermap.json'));
+
+/*$hls_server_map = [
 	'Counter-Strike : Global Offensive' => [
 		[
 			'servername' => 'Heartless Gaming | Public Competitive - tick 128',
@@ -49,7 +51,7 @@ $hls_server_map = [
 			'port' => 27022
 		]
 	]
-];
+];*/
 
 /*
  * Checking if the server map can be found in the steam api request
@@ -61,7 +63,7 @@ $hls_steamapi_url = 'http://api.steampowered.com/ISteamApps/GetServersAtAddress/
 $hls_steamapi_file = 'heartlessgaming-steamapi.json';
 
 // Getting an array of the online servers from steamapi
-$hls_steamapi_json = json_decode(file_get_contents($hls_steamapi_file), true);
+$hls_steamapi_json = json_decode(file_get_contents('json/' . $hls_steamapi_file), true);
 $hls_online_servers = $hls_steamapi_json['response']['servers'];
 $hls_online_servers_port = [];
 
@@ -118,10 +120,10 @@ function get_source_server_info($port) {
 			<div class="js-gameserver-list">
 			<?php foreach ($hls_gameservers_info as $game_info) : ?>
 				<div class="game-server__instance flex-container">
-					<p class="game-server__name"><?php echo $game_info['servername'] ?></p>
-					<p class="game-server__ip"><?php echo $hls_server_ip . ':' . $game_info['port'] ?></p>
-				<?php if (check_server_status($game_info['port'])) : ?>
-					<a href="steam://connect/<?php echo $hls_server_ip . ':' . $game_info['port'] ?>" class="game-server__status game-server__join btn">Join</a>
+					<p class="game-server__name"><?php echo $game_info->servername ?></p>
+					<p class="game-server__ip"><?php echo $hls_server_ip . ':' . $game_info->port ?></p>
+				<?php if (check_server_status($game_info->port)) : ?>
+					<a href="steam://connect/<?php echo $hls_server_ip . ':' . $game_info->port ?>" class="game-server__status game-server__join btn">Join</a>
 				<?php else: ?>
 					<p class="game-server__status game-server__offline">Offline</p>
 				<?php endif; ?>
