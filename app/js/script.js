@@ -1,3 +1,5 @@
+console.log('lodr')
+
 var greetingMessage = function () {
   console.log('  #####   ')
   console.log(' #######  ')

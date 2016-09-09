@@ -2072,33 +2072,40 @@ ul.unstyled {
   background-color: #222;
 }
 
-.game-server__instance {
+.game-server__header {
+  background-color: #333;
+}
+
+.game-server__info {
   align-items: center;
   padding: 2rem 2%;
 }
 
 @media (min-width: 640px) {
-  .game-server__instance {
+  .game-server__info {
     padding: 2rem 5%;
     flex-direction: column;
   }
 }
 
 @media (min-width: 768px) {
-  .game-server__instance {
+  .game-server__info {
     flex-direction: row;
   }
 }
 
 @media (min-width: 1280px) {
-  .game-server__instance {
+  .game-server__info {
     width: 1280px;
     margin: auto;
   }
 }
 
-.game-server__header {
-  background-color: #333;
+@media (min-width: 768px) {
+  .game-server__info > p,
+  .game-server__info > a {
+    margin-top: 0;
+  }
 }
 
 .game-server__title {
@@ -2141,13 +2148,19 @@ ul.unstyled {
 @media (min-width: 768px) {
   .game-server__name {
     text-align: left;
+  }
+}
+
+@media (min-width: 768px) {
+  .game-server__players {
+    text-align: right;
     flex-grow: 1;
   }
 }
 
 @media (min-width: 768px) {
   .game-server__ip {
-    margin-top: 0;
+    margin-left: 20px;
   }
 }
 
@@ -2156,18 +2169,6 @@ ul.unstyled {
   margin-top: 1em;
   text-transform: uppercase;
   letter-spacing: 1px;
-}
-
-@media (min-width: 768px) {
-  .game-server__status {
-    margin: 0;
-  }
-}
-
-@media (min-width: 768px) {
-  .game-server__status {
-    margin-top: 0;
-  }
 }
 
 .game-server__join {

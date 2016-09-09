@@ -52,8 +52,6 @@ function get_source_server_info($port) {
 	return $server->getServerInfo();
 }
 
-echo get_source_server_info(27015)["numberOfPlayers"];
-
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -79,13 +77,13 @@ echo get_source_server_info(27015)["numberOfPlayers"];
 			</header>
 			<div class="js-gameserver-list">
 			<?php foreach ($hls_gameservers_info as $game_info) : ?>
-				<div class="game-server__instance flex-container">
+				<div class="game-server__info flex-container">
 					<p class="game-server__name"><?php echo $game_info->servername ?></p>
-					<?php
-						if ($game_info->isSourceGame) {
-							echo get_source_server_info($game_info->port)['numberOfPlayers'] . ' / ' . get_source_server_info($game_info->port)['maxPlayers'];
-						}
-					?>
+					<p class="game-server__players">
+						<?php if ($game_info->isSourceGame) {
+								echo get_source_server_info($game_info->port)['numberOfPlayers'] . ' / ' . get_source_server_info($game_info->port)['maxPlayers'];
+						} ?>
+					</p>
 					<p class="game-server__ip"><?php echo $hls_server_ip . ':' . $game_info->port ?></p>
 				<?php if (check_server_status($game_info->port)) : ?>
 					<a href="steam://connect/<?php echo $hls_server_ip . ':' . $game_info->port ?>" class="game-server__status game-server__join btn">Join</a>
