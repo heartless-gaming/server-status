@@ -63,7 +63,7 @@ $hls_steamapi_url = 'http://api.steampowered.com/ISteamApps/GetServersAtAddress/
 $hls_steamapi_file = 'heartlessgaming-steamapi.json';
 
 // Getting an array of the online servers from steamapi
-$hls_steamapi_json = json_decode(file_get_contents($hls_steamapi_file), true);
+$hls_steamapi_json = json_decode(file_get_contents('json/' . $hls_steamapi_file), true);
 $hls_online_servers = $hls_steamapi_json['response']['servers'];
 $hls_online_servers_port = [];
 
