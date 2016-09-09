@@ -2177,7 +2177,6 @@ ul.unstyled {
   color: #f0f0f0;
   text-decoration: none;
   font-family: 'robotobold';
-  /*box-shadow: 0px 0px 7px 0px rgba(255,255,255,1);*/
   border-radius: 3px;
   border: 1px solid #fff;
   transition-duration: 0.5s;
@@ -2203,6 +2202,16 @@ ul.unstyled {
 @media (min-width: 768px) {
   .game-server__offline {
     margin-left: 2rem;
+    padding: 0 1.2rem;
+  }
+}
+
+.game-server__updating {
+  color: #ff7260;
+}
+
+@media (min-width: 768px) {
+  .game-server__updating {
     padding: 0 1.2rem;
   }
 }

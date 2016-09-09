@@ -84,8 +84,12 @@ function get_source_server_info($port) {
 					</p>
 					<p class="game-server__ip"><?php echo $hls_server_ip . ':' . $game_info->port ?></p>
 				<?php if (check_server_status($game_info->port)) : ?>
-					<a href="steam://connect/<?php echo $hls_server_ip . ':' . $game_info->port ?>" class="game-server__status game-server__join btn">Join</a>
-				<?php else: ?>
+					<?php if (true === true) : ?>
+						<p class="game-server__status game-server__updating">Updating</p>
+					<?php else: ?>
+						<a href="steam://connect/<?php echo $hls_server_ip . ':' . $game_info->port ?>" class="game-server__status game-server__join btn">Join</a>
+					<?php endif; ?>
+				<?php else : ?>
 					<p class="game-server__status game-server__offline">Offline</p>
 				<?php endif; ?>
 				</div>
