@@ -11,48 +11,6 @@ $hls_server_ip = '91.121.154.84';
  */
 $hls_server_map = json_decode(file_get_contents('json/heartlessgaming-servermap.json'));
 
-/*$hls_server_map = [
-	'Counter-Strike : Global Offensive' => [
-		[
-			'servername' => 'Heartless Gaming | Public Competitive - tick 128',
-			'port' => 27015
-		],[
-			'servername' => 'Heartless Gaming | Deathmatch FFA Only D2 - tick 128',
-			'port' => 27016
-		]
-	],
-	'Killing Floor' => [
-		[
-			'servername' => 'Heartless Gaming | HARD Long',
-			'port' => 7707
-		],[
-			'servername' => 'Heartless Gaming | HARD Suicidal',
-			'port' => 7708
-		],[
-			'servername' => 'Heartless Gaming | Killing Floor Private',
-			'port' => 7709
-		]
-	],
-	'Insurgency' => [
-		[
-			'servername' => 'Heartless Gaming | Insurgency COOP - tick 128',
-			'port' => 27018
-		]
-	],
-	'Half-life 2: Deathmatch' => [
-		[
-			'servername' => 'Heartless Gaming | Half-Life 2 Deathmatch - Vanilla',
-			'port' => 27021
-		]
-	],
-	'Black Mesa Source Multiplayer' => [
-		[
-			'servername' => 'Heartless Gaming | Black Mesa Source - Vanilla',
-			'port' => 27022
-		]
-	]
-];*/
-
 /*
  * Checking if the server map can be found in the steam api request
  *
