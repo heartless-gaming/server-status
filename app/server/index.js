@@ -197,7 +197,7 @@ let updateGameStatusJson = function (formatedQueriesResult) {
             return 'rejected'
           }
         } else {
-          return 'online'
+          return 'join'
         }
       } else {
         return 'offline'

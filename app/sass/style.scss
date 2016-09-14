@@ -103,6 +103,7 @@
 .game-server__info {
   align-items: center;
   padding: 2rem 2%;
+  cursor: pointer;
 }
 
 @include media('>=small-screen') {
@@ -183,7 +184,7 @@
 }
 
 .game-server__ip {
-
+ display: none;
 }
 
 @include media('>=small-plus-screen') {

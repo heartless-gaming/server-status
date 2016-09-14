@@ -2079,6 +2079,7 @@ ul.unstyled {
 .game-server__info {
   align-items: center;
   padding: 2rem 2%;
+  cursor: pointer;
 }
 
 @media (min-width: 640px) {
@@ -2156,6 +2157,10 @@ ul.unstyled {
     text-align: right;
     flex-grow: 1;
   }
+}
+
+.game-server__ip {
+  display: none;
 }
 
 @media (min-width: 768px) {

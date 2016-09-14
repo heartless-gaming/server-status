@@ -1,6 +1,6 @@
 /*
 * Hello There c'est Skull !
-* On va faire du jquery comme des cochon !
+* My jquery suck
 */
 var greetingMessage = function () {
   console.log('  #####   ')
@@ -49,21 +49,29 @@ var reloadServerInfo = function () {
     }
 
     $gameServerPlayers.each(function (i, el) {
-      $(el).text(updatedPlayers[i])
+      if ($(el).text() !== updatedPlayers[i]) {
+        $(el).text(updatedPlayers[i])
+      }
     })
-    // $gameServerStatus.each(function (j, el) {
-    //   $(el)
-    //   console.log(j)
-
-    // })
   })
-  // setTimeout(reloadServerInfo, 150000000)
+  setTimeout(reloadServerInfo, 15000)
+}
+
+var gameServerInfoClick = function () {
+  var $gameServerInfo = $('.game-server__info')
+
+  $gameServerInfo.click(function (event) {
+    $(this).find('.game-server__ip')
+      .stop()
+      .fadeToggle('slow')
+  })
 }
 
 jQuery(document).ready(function ($) {
   greetingMessage()
   arrowGameServer()
   reloadServerInfo()
+  gameServerInfoClick()
 })
 
 /*

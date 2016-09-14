@@ -35,10 +35,10 @@ $games = $server_status->games;
 					<p class="game-server__name"><?php echo $game_server->serverName ?></p>
 					<p class="game-server__players"><?php echo $game_server->players ?></p>
 					<p class="game-server__ip"><?php echo $server_ip . ':' . $game_server->port ?></p>
-				<?php if ($game_server->status === 'online') : ?>
-						<a href="steam://connect/<?php echo $server_ip . ':' . $game_server->port ?>" class="game-server__status game-server__join btn">Join</a>
+				<?php if ($game_server->status === 'join') : ?>
+						<a href="steam://connect/<?php echo $server_ip . ':' . $game_server->port ?>" class="game-server__status game-server__join btn">join</a>
 				<?php elseif ($game_server->status === 'updating') : ?>
-					<p class="game-server__status game-server__updating">Updating</p>
+					<p class="game-server__status game-server__updating">updating</p>
 				<?php elseif ($game_server->status === 'rejected') : ?>
 					<p class="game-server__status game-server__offline">Rejected</p>
 				<?php else : ?>
