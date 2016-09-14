@@ -1,4 +1,3 @@
-console.log('lodr')
 /*
 * Hello There c'est Skull !
 */
@@ -31,8 +30,20 @@ var arrowGameServer = function () {
       .slideToggle(500)
   })
 }
-
 jQuery(document).ready(function ($) {
   greetingMessage()
   arrowGameServer()
+
+  function reloadServerInfo () {
+    $.getJSON('json/heartlessgaming-serverstatus.json', function (data) {
+      console.log(data)
+    })
+    setTimeout(reloadServerInfo, 15000)
+  }
+  reloadServerInfo()
 })
+
+/*
+ * Reload the content of the game server status json
+ * file into the page every 15seconds
+ */
