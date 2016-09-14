@@ -9,6 +9,7 @@ const log = console.log.bind(console)
 
 const gameServerMap = 'app/json/heartlessgaming-servermap.json'
 const gameServerStatusJson = 'app/json/heartlessgaming-serverstatus.json'
+const gameServerSteamApi = 'app/json/heartlessgaming-serverapi.json'
 
 let logResult = function (res) {
   log(res)
