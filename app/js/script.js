@@ -1,5 +1,6 @@
 /*
 * Hello There c'est Skull !
+* On va faire du jquery comme des cochon !
 */
 var greetingMessage = function () {
   console.log('  #####   ')
@@ -30,16 +31,38 @@ var arrowGameServer = function () {
       .slideToggle(500)
   })
 }
+
+var reloadServerInfo = function () {
+  var $gameServerPlayers = $('.game-server__players')
+  var $gameServerStatus = $('.game-server__status')
+
+  $.getJSON('json/heartlessgaming-serverstatus.json', function (data) {
+    var updatedPlayers = []
+    var updatedStatus = []
+
+    for (var i = 0, l = data.games.length; i < l; i++) {
+      var gameServers = data.games[i].gameServers
+      for (var j = 0, m = gameServers.length; j < m; j++) {
+        updatedPlayers.push(gameServers[j].players)
+        updatedStatus.push(gameServers[j].status)
+      }
+    }
+
+    $gameServerPlayers.each(function (i, el) {
+      $(el).text(updatedPlayers[i])
+    })
+    // $gameServerStatus.each(function (j, el) {
+    //   $(el)
+    //   console.log(j)
+
+    // })
+  })
+  // setTimeout(reloadServerInfo, 150000000)
+}
+
 jQuery(document).ready(function ($) {
   greetingMessage()
   arrowGameServer()
-
-  function reloadServerInfo () {
-    $.getJSON('json/heartlessgaming-serverstatus.json', function (data) {
-      console.log(data)
-    })
-    setTimeout(reloadServerInfo, 15000)
-  }
   reloadServerInfo()
 })
 
