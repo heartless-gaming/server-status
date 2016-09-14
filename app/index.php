@@ -7,13 +7,13 @@ $server_status = json_decode(file_get_contents('json/heartlessgaming-serverstatu
 $server_ip = $server_status->gameServerIp;
 $games = $server_status->games;
 
-echo '<pre>';
-foreach ($games as $game) {
-	foreach ($game->gameServers as $game_server) {
-		echo $game_server->players;
-	}
-}
-echo '</pre>';
+// echo '<pre>';
+// foreach ($games as $game) {
+// 	foreach ($game->gameServers as $game_server) {
+// 		echo $game_server->players;
+// 	}
+// }
+// echo '</pre>';
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -43,12 +43,9 @@ echo '</pre>';
 					<p class="game-server__name"><?php echo $game_server->serverName ?></p>
 					<p class="game-server__players"><?php echo $game_server->players ?></p>
 					<p class="game-server__ip"><?php echo $server_ip . ':' . $game_server->port ?></p>
-				<?php if (check_server_status($game_server->port)) : ?>
-					<?php if (true === true) : ?>
+				<?php if ($game_server->status === 'online') : ?>
 						<p class="game-server__status game-server__updating">Updating</p>
-					<?php else: ?>
 						<a href="steam://connect/<?php echo $server_ip . ':' . $game_server->port ?>" class="game-server__status game-server__join btn">Join</a>
-					<?php endif; ?>
 				<?php else : ?>
 					<p class="game-server__status game-server__offline">Offline</p>
 				<?php endif; ?>

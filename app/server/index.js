@@ -211,8 +211,8 @@ let updateGameStatusJson = function (formatedQueriesResult) {
         // Add a players fields return a string 'numberOfPlayers / maxplayers'
         games[i].gameServers[j].players = `${formatedQueriesResult[i][j].players} / ${formatedQueriesResult[i][j].maxplayers}`
 
-        // Add an "online" status that returns a string : online, offline
-        games[i].gameServers[j].online = setOnlineStatus(gamePort)
+        // Add a "status" field that returns a string : online, offline, updating or rejected
+        games[i].gameServers[j].status = setOnlineStatus(gamePort)
       }
     }
 
