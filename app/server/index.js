@@ -7,8 +7,8 @@ const gameQuery = require('game-server-query')
 
 const log = console.log.bind(console)
 
-const gameServerMap = 'json/heartlessgaming-servermap.json'
-const gameServerStatusJson = 'json/heartlessgaming-serverstatus.json'
+const gameServerMap = 'app/json/heartlessgaming-servermap.json'
+const gameServerStatusJson = 'app/json/heartlessgaming-serverstatus.json'
 
 let logResult = function (res) {
   log(res)
@@ -52,7 +52,6 @@ let writeJson = function (jsonFileName, fileContent) {
   }
 
   let writeJsonFile = function (encodedJson) {
-    log(encodedJson)
     return writeFile(jsonFileName, encodedJson)
   }
 
