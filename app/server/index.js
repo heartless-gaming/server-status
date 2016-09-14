@@ -11,9 +11,9 @@ const gameServerMap = 'app/json/heartlessgaming-servermap.json'
 const gameServerStatusJson = 'app/json/heartlessgaming-serverstatus.json'
 const gameServersSteamApiJson = 'app/json/heartlessgaming-steamapi.json'
 
-let logResult = function (res) {
-  log(res)
-}
+// let logResult = function (res) {
+//   log(res)
+// }
 
 let logError = function (err) {
   log(color.yellow(err))
@@ -66,10 +66,11 @@ let writeJson = function (jsonFileName, fileContent) {
  */
 let doGameQuery = function (gameId, ip, queryPort) {
   return new Promise(function (resolve, reject) {
-    return gameQuery({type: gameId, host: `${ip}:${queryPort} `}, function (res) {
-      if (res.error) reject('doGameQuery failed : ' + color.red(res.error))
-      else resolve(res)
-    })
+    return gameQuery({type: gameId, host: `${ip}:${queryPort} `},
+      function (res) {
+        if (res.error) reject('doGameQuery failed : ' + color.red(res.error))
+        else resolve(res)
+      })
   })
 }
 
@@ -137,13 +138,20 @@ let formatQueriesResult = function (gameServersQueriesResult) {
   let i = 0
 
   gameServersQueriesResult.map(function (gameServerQuery) {
-    // Si la gameServerQuery.query.type changent je pouse les requete suivante dans la suite de l'array formatedQueriesResult
+    // if the gameServerQuery.query.type changes
+    // then push the next query in the next formatedQueriesResult position
     if (previousGame === gameServerQuery.query.type) {
-      formatedQueriesResult[i].push({players: gameServerQuery.players.length, maxplayers: gameServerQuery.maxplayers})
+      formatedQueriesResult[i].push({
+        players: gameServerQuery.players.length,
+        maxplayers: gameServerQuery.maxplayers
+      })
     } else {
       i++
       previousGame = gameServerQuery.query.type
-      formatedQueriesResult[i] = [{players: gameServerQuery.players.length, maxplayers: gameServerQuery.maxplayers}]
+      formatedQueriesResult[i] = [{
+        players: gameServerQuery.players.length,
+        maxplayers: gameServerQuery.maxplayers
+      }]
     }
   })
   return formatedQueriesResult
@@ -167,18 +175,44 @@ let updateGameStatusJson = function (formatedQueriesResult) {
     let gameServersSteamApi = readServerMapAndSteamApiResult[1].response.servers
     let onlineServersPorts = []
 
-    // Populate the onlineServersPorts array in order to detect which servers are online or not
-    gameServersSteamApi.map(gameServerSteamApi => onlineServersPorts.push(gameServerSteamApi.gameport))
+    // Populate the onlineServersPorts array
+    // in order to detect which servers are online or not
+    gameServersSteamApi.map(function (gameServerSteamApi) {
+      onlineServersPorts.push(gameServerSteamApi.gameport)
+    })
+
+    let setOnlineStatus = function (gamePort) {
+      let indexOfGamePort = onlineServersPorts.indexOf(gamePort)
+
+      // log(onlineServersPorts.indexOf(27015))
+
+      // if server can be found in the steam api call
+      if (indexOfGamePort >= 0) {
+        // if that server has a reject field AND
+        // if that field is bad_version then set to updating
+        if (gameServersSteamApi[indexOfGamePort].hasOwnProperty('reject')) {
+          if (gameServersSteamApi[indexOfGamePort].reject === 'bad_version') {
+            return 'updating'
+          } else {
+            return 'rejected'
+          }
+        } else {
+          return 'online'
+        }
+      } else {
+        return 'offline'
+      }
+    }
 
     for (let i = 0, l = gameServersInfo.games.length; i < l; i++) {
       let games = gameServersInfo.games
       for (let j = 0, l = games[i].gameServers.length; j < l; j++) {
+        let gamePort = games[i].gameServers[j].port
         // Add a players fields return a string 'numberOfPlayers / maxplayers'
         games[i].gameServers[j].players = `${formatedQueriesResult[i][j].players} / ${formatedQueriesResult[i][j].maxplayers}`
 
         // Add an "online" status that returns a string : online, offline
-        if (onlineServersPorts.indexOf(games[i].gameServers[j].port) >= 0) games[i].gameServers[j].online = 'online'
-        else (games[i].gameServers[j].online = 'offline')
+        games[i].gameServers[j].online = setOnlineStatus(gamePort)
       }
     }
 
