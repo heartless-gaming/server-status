@@ -44,9 +44,9 @@ $games = $server_status->games;
 					<p class="game-server__players"><?php echo $game_server->players ?></p>
 					<p class="game-server__ip"><?php echo $server_ip . ':' . $game_server->port ?></p>
 				<?php if ($game_server->status === 'online') : ?>
-						<p class="game-server__status game-server__updating">Updating</p>
 						<a href="steam://connect/<?php echo $server_ip . ':' . $game_server->port ?>" class="game-server__status game-server__join btn">Join</a>
-				<?php else : ?>
+				<?php elseif ($game_server->status === 'updating') : ?>
+					<p class="game-server__status game-server__updating">Updating</p>
 					<p class="game-server__status game-server__offline">Offline</p>
 				<?php endif; ?>
 				</div>

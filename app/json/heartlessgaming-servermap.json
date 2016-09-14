@@ -8,17 +8,17 @@
 				{
 					"serverName": "Heartless Gaming | Public Competitive - tick 128",
 					"port": 27015,
-					"queryPort": 27015,
+					"queryPort": 27015
 				},
 				{
 					"serverName": "Heartless Gaming | Deathmatch FFA Only D2 - tick 128",
 					"port": 27016,
-					"queryPort": 27016,
+					"queryPort": 27016
 				},
 				{
 					"serverName": "Heartless Gaming | Deathmatch FFA HSMOD Only D2 - tick 128",
 					"port": 27017,
-					"queryPort": 27017,
+					"queryPort": 27017
 				}
 			]
 		},{
@@ -48,7 +48,7 @@
 				{
 					"servername": "Heartless Gaming | Insurgency COOP - tick 128",
 					"port": 27018,
-					"queryPort": 27018,
+					"queryPort": 27018
 				}
 			]
 		},{
@@ -58,7 +58,7 @@
 				{
 					"servername": "Heartless Gaming | Half-Life 2 Deathmatch - Vanilla",
 					"port": 27021,
-					"queryPort": 27021,
+					"queryPort": 27021
 				}
 			]
 		}
