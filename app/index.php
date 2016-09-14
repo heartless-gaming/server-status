@@ -6,14 +6,6 @@ error_reporting(E_ALL);
 $server_status = json_decode(file_get_contents('json/heartlessgaming-serverstatus.json'));
 $server_ip = $server_status->gameServerIp;
 $games = $server_status->games;
-
-// echo '<pre>';
-// foreach ($games as $game) {
-// 	foreach ($game->gameServers as $game_server) {
-// 		echo $game_server->players;
-// 	}
-// }
-// echo '</pre>';
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -47,6 +39,9 @@ $games = $server_status->games;
 						<a href="steam://connect/<?php echo $server_ip . ':' . $game_server->port ?>" class="game-server__status game-server__join btn">Join</a>
 				<?php elseif ($game_server->status === 'updating') : ?>
 					<p class="game-server__status game-server__updating">Updating</p>
+				<?php elseif ($game_server->status === 'rejected') : ?>
+					<p class="game-server__status game-server__offline">Rejected</p>
+				<?php else : ?>
 					<p class="game-server__status game-server__offline">Offline</p>
 				<?php endif; ?>
 				</div>
@@ -57,7 +52,8 @@ $games = $server_status->games;
 	<?php endforeach; ?>
 	</main>
 	<footer class="page-footer box">
-		<p>Game servers online status are checked every 10 minutes.</p>
+		<p>Game servers online status are refreshed automaticaly every 10 minutes.</p>
+		<p>Numbers of players on the server are refreshed automaticaly every 30 seconds.</p>
 		<p>Feel free to contact us by email <span class="page-footer__mail">contact [at] heartlessgaming.com</span> if you have a problem or a sugestion to make the game servers better.</p>
 		<p>The source code of this website is available on <a href="https://github.com/heartless-gaming/server-status">github</a></p>
 		<p>Play more, Care less, Be an Heartless.</p>

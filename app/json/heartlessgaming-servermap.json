@@ -46,7 +46,7 @@
 			"gameId": "insurgency",
 			"gameServers": [
 				{
-					"servername": "Heartless Gaming | Insurgency COOP - tick 128",
+					"serverName": "Heartless Gaming | Insurgency COOP - tick 128",
 					"port": 27018,
 					"queryPort": 27018
 				}
@@ -56,7 +56,7 @@
 			"gameId": "hl2dm",
 			"gameServers": [
 				{
-					"servername": "Heartless Gaming | Half-Life 2 Deathmatch - Vanilla",
+					"serverName": "Heartless Gaming | Half-Life 2 Deathmatch - Vanilla",
 					"port": 27021,
 					"queryPort": 27021
 				}

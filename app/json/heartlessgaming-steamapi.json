@@ -26,6 +26,17 @@
 				"specport": 0
 			},
 			{
+				"addr": "91.121.154.84:27017",
+				"gmsindex": 65534,
+				"appid": 730,
+				"gamedir": "csgo",
+				"region": -1,
+				"secure": true,
+				"lan": false,
+				"gameport": 27017,
+				"specport": 0
+			},
+			{
 				"addr": "91.121.154.84:27018",
 				"gmsindex": 65534,
 				"appid": 222880,
