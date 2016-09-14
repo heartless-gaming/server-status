@@ -9,7 +9,7 @@ const log = console.log.bind(console)
 
 const gameServerMap = 'app/json/heartlessgaming-servermap.json'
 const gameServerStatusJson = 'app/json/heartlessgaming-serverstatus.json'
-const gameServerSteamApi = 'app/json/heartlessgaming-serverapi.json'
+const gameServersSteamApiJson = 'app/json/heartlessgaming-steamapi.json'
 
 let logResult = function (res) {
   log(res)
@@ -153,23 +153,39 @@ let formatQueriesResult = function (gameServersQueriesResult) {
  *  Build a json containing all the game server info to be used by the frontend
  */
 let updateGameStatusJson = function (formatedQueriesResult) {
-  let readGameServerMap = function () {
-    return readJson(gameServerMap)
+  let readServerMapAndSteamApi = function () {
+    let promiseArray = [
+      readJson(gameServerMap),
+      readJson(gameServersSteamApiJson)
+    ]
+
+    return Promise.all(promiseArray)
   }
 
-  let updateGameServersInfo = function (gameServerMap) {
-    let gameServersInfo = gameServerMap
+  let updateGameServersInfo = function (readServerMapAndSteamApiResult) {
+    let gameServersInfo = readServerMapAndSteamApiResult[0]
+    let gameServersSteamApi = readServerMapAndSteamApiResult[1].response.servers
+    let onlineServersPorts = []
+
+    // Populate the onlineServersPorts array in order to detect which servers are online or not
+    gameServersSteamApi.map(gameServerSteamApi => onlineServersPorts.push(gameServerSteamApi.gameport))
+
     for (let i = 0, l = gameServersInfo.games.length; i < l; i++) {
       let games = gameServersInfo.games
       for (let j = 0, l = games[i].gameServers.length; j < l; j++) {
+        // Add a players fields return a string 'numberOfPlayers / maxplayers'
         games[i].gameServers[j].players = `${formatedQueriesResult[i][j].players} / ${formatedQueriesResult[i][j].maxplayers}`
+
+        // Add an "online" status that returns a string : online, offline
+        if (onlineServersPorts.indexOf(games[i].gameServers[j].port) >= 0) games[i].gameServers[j].online = 'online'
+        else (games[i].gameServers[j].online = 'offline')
       }
     }
 
     return gameServersInfo
   }
 
-  return readGameServerMap()
+  return readServerMapAndSteamApi()
     .then(updateGameServersInfo)
 }
 
