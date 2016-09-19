@@ -2228,23 +2228,29 @@ ul.unstyled {
 .page-footer {
   max-width: 1280px;
   margin: 0 auto;
-  padding-top: 0;
-  padding-right: 2%;
-  padding-left: 2%;
-  padding-bottom: 4rem;
-}
-
-@media (min-width: 640px) {
-  .page-footer {
-    padding-top: 0;
-    padding-right: 5%;
-    padding-left: 5%;
-    padding-bottom: 4rem;
-  }
 }
 
 .page-footer__mail {
+  text-align: center;
   color: #c61600;
+}
+
+.footer-grid-item__title {
+  margin: auto;
+}
+
+.heartless-tagline {
+  margin: 2em 0;
+  text-align: center;
+}
+
+.page-info {
+  background-color: #1D1D1D;
+  padding: 1em;
+}
+
+.page-info__title {
+  text-align: center;
 }
 
 /*# sourceMappingURL=style.map.css */

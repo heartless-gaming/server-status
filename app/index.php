@@ -51,12 +51,25 @@ $games = $server_status->games;
 		</section>
 	<?php endforeach; ?>
 	</main>
-	<footer class="page-footer box">
-		<p>Game servers online status are refreshed automaticaly every 10 minutes.</p>
-		<p>Numbers of players on the server are refreshed automaticaly every 30 seconds.</p>
-		<p>Feel free to contact us by email <span class="page-footer__mail">contact [at] heartlessgaming.com</span> if you have a problem or a sugestion to make the game servers better.</p>
-		<p>The source code of this website is available on <a href="https://github.com/heartless-gaming/server-status">github</a></p>
-		<p>Play more, Care less, Be an Heartless.</p>
+	<footer class="page-footer">
+	<div class="grid-3-small-1">
+		<div class="page-info">
+			<h3 class="page-info__title">Auto Update</h3>
+			<p>Numbers of players on the server are refreshed automaticaly every 30 seconds.</p>
+			<p>Game servers online status are refreshed automaticaly every 10 minutes.</p>
+		</div>
+		<div class="page-info">
+			<h3 class="page-info__title">Contact Us</h3>
+			<p>Feel free to contact us by email if you have a problem or a sugestion to make the game servers better.</p>
+			<p class="page-footer__mail">contact [at] heartlessgaming.com</p>
+		</div>
+		<div class="page-info">
+			<h3 class="page-info__title">Source code</h3>
+			<p>The source code of this website is available on <a href="https://github.com/heartless-gaming/server-status">github</a>.</p>
+			<p>Made possible by the awesome <a href="https://github.com/kurt-stolle/game-server-query">game server query</a> library by Kurt Stolle.</p>
+		</div>
+	</div>
+	<h4 class="heartless-tagline">Play more, Care less, Be an Heartless.</h4>
 	</footer>
 	<script src="../node_modules/jquery/dist/jquery.min.js"></script>
 	<script src="js/script.js"></script>
