@@ -61,7 +61,7 @@ $games = $server_status->games;
 		<div class="page-info">
 			<h3 class="page-info__title">Contact Us</h3>
 			<p>Feel free to contact us by email if you have a problem or a sugestion to make the game servers better.</p>
-			<p class="page-footer__mail">contact [at] heartlessgaming.com</p>
+			<p class="page-footer__mail">contact [at] heartlessgaming [dot] com</p>
 		</div>
 		<div class="page-info">
 			<h3 class="page-info__title">Source code</h3>
