@@ -66,7 +66,7 @@ $games = $server_status->games;
 		<div class="page-info">
 			<h3 class="page-info__title">Source code</h3>
 			<p>The source code of this website is available on <a href="https://github.com/heartless-gaming/server-status">github</a>.</p>
-			<p>Made possible by the awesome <a href="https://github.com/kurt-stolle/game-server-query">game server query</a> library by Kurt Stolle. And the power of open-source software</p>
+			<p>Made possible by the awesome <a href="https://github.com/kurt-stolle/game-server-query">game server query</a> library by Kurt Stolle. And a lot of others open-source sofware.</p>
 		</div>
 	</div>
 	<h4 class="heartless-tagline">Play More, Care Less, Be a Heartless.</h4>
