@@ -69,7 +69,7 @@ $games = $server_status->games;
 			<p>Made possible by the awesome <a href="https://github.com/kurt-stolle/game-server-query">game server query</a> library by Kurt Stolle.</p>
 		</div>
 	</div>
-	<h4 class="heartless-tagline">Play more, Care less, Be a Heartless.</h4>
+	<h4 class="heartless-tagline">Play More, Care Less, Be a Heartless.</h4>
 	</footer>
 	<script src="../node_modules/jquery/dist/jquery.min.js"></script>
 	<script src="js/script.js"></script>
